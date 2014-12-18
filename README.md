@@ -42,23 +42,3 @@ Parameters:
 
 * `offset` (optional) - defaults to 0
 * `limit` (optional) - defaults to 60
-
-
-## Browser Matrix
-
-This is our browser matrix - You're not expected to test against every device in the short space of
-time but be aware of the different levels of support required.
-
-* Class A - Full functionality & content supported. Visual quirks that only have a minor effect on design & usability are tolerated on non-target browsers.
-* Class B - Core shopping functionality supported. Visual quirks that do not interrupt core shopping functionality tolerated across the site.
-
-Browser
-Class A Version
-Class B Version*
-Safari - Desktop    Latest  5.1+
-Safari - Mobile Latest  6+
-Safari - Tablet Latest  6+
-Chrome - Desktop    Latest  35+
-Chrome - Mobile Latest  28+
-Firefox - Desktop   Latest  30+
-Internet Explorer - Desktop Latest  8+
