@@ -30,4 +30,6 @@ router.get('/', function (req, res, next) {
 });
 
 // Listen for incoming requests
-http.createServer(app).listen(3000);
+http.createServer(app).listen(3000, function () {
+    console.log('Listening for incoming requests at http://localhost:3000/')
+});

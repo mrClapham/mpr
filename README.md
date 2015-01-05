@@ -14,9 +14,21 @@ should take about 2 hours but it's more important you're happy with your impleme
 finish bang on time.
 
 
-## API
+## Setup
+
+To run the app:
+
+```shell
+$ npm install
+$ node app
+```
+
+
+## Products API
 
 Returns a list of products. 
+
+Example:
 
 ```
 GET /products/?offset=0&limit=60
