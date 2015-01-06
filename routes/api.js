@@ -9,7 +9,7 @@ router.get('/products/', function (req, res, next) {
     var offset = parseInt(req.query.offset) || 0;
     var limit = parseInt(req.query.limit) || 60;
     if (offset > total) {
-        return res.send(400);
+        return res.type('json').sendStatus(400);
     }
 
     res.json({
