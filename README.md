@@ -9,6 +9,8 @@
 * Use any library/framework you deem applicable
 * Don't worry about header/footer
 
+Use the following [design mockups](public/mockups.jpg).
+
 This is a chance for you to show us how you think this part of our website should be built. The task
 should take about 2 hours but it's more important you're happy with your implementation than to
 finish bang on time.
