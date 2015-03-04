@@ -17,11 +17,15 @@
 
     <ul class="products">
         <li data-ng-repeat = "(key, item) in data">
-            <p>{{item.designer}}</p>
-            <p>{{item.name}}</p>
-            <p>{{item.price}}</p>
-            <img ng-src="http://{{item.image}}" width="100px" />
-            <img ng-src="http://cache.mrporter.com/images/products/481173/481173_mrp_in_m2.jpg" width="100px" />
+            <div class="product-holder">
+                <div class="image-holder">
+                    <img class="img-responsive" ng-src="http://{{item.largeImage}}" />
+                </div>
+                <p>{{item.designer}}</p>
+                <p>{{item.name}}</p>
+                <p>{{item.price}}</p>
+            </div>
+
 
         </li>
     </ul>
