@@ -4,8 +4,29 @@
     <title></title>
     <link rel="stylesheet" href="css/main.css"/>
     <script type="text/javascript" src="components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="js/App.js"></script>
+    <script type="text/javascript" src="js/AppService.js"></script>
+    <script type="text/javascript" src="js/AppController.js"></script>
 </head>
 <body>
 <h1>Public html</h1>
+<div ng-app="App" ng-controller="AppController">
+    {{testVal}}
+
+
+    <ul class="products">
+        <li data-ng-repeat = "(key, item) in data">
+            <p>{{item.designer}}</p>
+            <p>{{item.name}}</p>
+            <p>{{item.price}}</p>
+            <img ng-src="http://{{item.image}}" width="100px" />
+            <img ng-src="http://cache.mrporter.com/images/products/481173/481173_mrp_in_m2.jpg" width="100px" />
+
+        </li>
+    </ul>
+
+
+</div>
 </body>
 </html>

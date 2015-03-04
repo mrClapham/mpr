@@ -1,3 +1,1 @@
-/**
- * Created by grahamcapham on 04/03/2015.
- */
+var App = new angular.module('App', ['ngResource']);
