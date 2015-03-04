@@ -18,8 +18,12 @@ app.use(router);
 app.use('/api/', api);
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+/* serves main page */
+app.use("/", express.static(__dirname + 'public/index.html'));
+
 // Setup routes
-router.get('/', function (req, res, next) {
+router.get('/mock', function (req, res, next) {
     // Fetch from mock API
     request('http://localhost:3000/api/products/', function(error, response, body) {
         if (error) {
@@ -28,6 +32,10 @@ router.get('/', function (req, res, next) {
         res.render('index', {products: body});
     });
 });
+
+
+
+
 
 // Listen for incoming requests
 http.createServer(app).listen(3000, function () {
