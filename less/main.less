@@ -27,31 +27,68 @@ only screen and (-webkit-min-device-pixel-ratio: 2),
 only screen and (min-device-pixel-ratio: 2) {
 
   .image {
-
-
+    //-- may not be needed...
   }
-
 }
 
 .product-holder{
-  width:270px;
-
+  width:256px;
+//  margin: 20px;
+  min-height:320px;
+  p{
+    margin-right: 10px;
+  }
   @media (max-width: 599px) {
     width:170px;
   }
 
   @media (min-width: 600px) and (max-width: 767px) {
-    width:200px;
+    width:196px;
   }
 
   @media (min-width: 768px) and (max-width: 979px) {
-    width:270px;
+    width:256px;
+    min-height:375px;
   }
 
   @media (min-width: 1200px) {
-    width:270px;
-  }
-  .image-holder{
+    width:256px;
+    min-height:375px;
 
   }
+  .image-holder{
+    
+  }
+}
+
+.container{
+  border: 1px solid #cacaca;
+  width:805px;
+
+  @media (max-width: 599px) {
+    width:250px;
+  }
+
+  @media (min-width: 600px) and (max-width: 767px) {
+    width:620px;
+  }
+
+  @media (min-width: 768px) and (max-width: 979px) {
+    width:800px;
+  }
+
+  @media (min-width: 1200px) {
+    width:805px;
+  }
+
+}
+
+p.designer{
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
 }

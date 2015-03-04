@@ -4,16 +4,15 @@
     <title></title>
     <link rel="stylesheet" href="css/main.css"/>
     <script type="text/javascript" src="components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="components/angular-resource/angular-resource.min.js"></script>
+    <script type="text/javascript" src="components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
     <script type="text/javascript" src="js/App.js"></script>
     <script type="text/javascript" src="js/AppService.js"></script>
     <script type="text/javascript" src="js/AppController.js"></script>
 </head>
 <body>
-<h1>Public html</h1>
-<div ng-app="App" ng-controller="AppController">
-    {{testVal}}
-
+<div class ="container" ng-app="App" ng-controller="AppController">
 
     <ul class="products">
         <li data-ng-repeat = "(key, item) in data">
@@ -21,9 +20,9 @@
                 <div class="image-holder">
                     <img class="img-responsive" ng-src="http://{{item.largeImage}}" />
                 </div>
-                <p>{{item.designer}}</p>
-                <p>{{item.name}}</p>
-                <p>{{item.price}}</p>
+                <p class="designer">{{item.designer}}</p>
+                <p>{{item.name}}<br />
+                {{item.price}}</p>
             </div>
 
 
