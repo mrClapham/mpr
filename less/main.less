@@ -31,29 +31,42 @@ only screen and (min-device-pixel-ratio: 2) {
   }
 }
 
-.product-holder{
+.largerImageCell{
   width:256px;
-//  margin: 20px;
-  min-height:320px;
+  min-height:385px;
+}
+
+.product-holder{
+  .largerImageCell;
+  background-color: #ffff00;
+  overflow: hidden;
   p{
-    margin-right: 10px;
+    padding-right: 10px;
   }
   @media (max-width: 599px) {
-    width:170px;
+    width:220px;
+    min-height:320px;
+    background-color: #ff7b45;
+
   }
 
   @media (min-width: 600px) and (max-width: 767px) {
     width:196px;
+    min-height:330px;
+    background-color: #ff2656;
+
+
   }
 
   @media (min-width: 768px) and (max-width: 979px) {
-    width:256px;
-    min-height:375px;
+    .largerImageCell;
+    background-color: #ff2013;
   }
 
   @media (min-width: 1200px) {
-    width:256px;
-    min-height:375px;
+    .largerImageCell;
+    background-color: #9728ff;
+
 
   }
   .image-holder{
@@ -87,10 +100,25 @@ only screen and (min-device-pixel-ratio: 2) {
 
 p.designer{
   text-transform: uppercase;
-  padding: 0;
+  padding: 5px 0 0 0;
   margin: 0;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
+}
+
+
+.fadedOut{
+  opacity: .1;
+}
+.fadedIn{
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
+  &:hover{opacity:.4}
+
 }
