@@ -2,57 +2,31 @@
 
 ## Task
 
-* Build a dynamic product listing page using the API
-* Ensure its layout adapts to mobile/desktop viewports
-* Ensure product images look sharp on retina devices
-* Implement pagination/infinite scroll
-* Use any library/framework you deem applicable
-* Don't worry about header/footer
+I went for Angular as the framework. 
 
-Use the following [design mockups](public/mockups.jpg).
+I've avoided boilerplate and JQuery (althought I did use some lodash).
 
-This is a chance for you to show us how you think this part of our website should be built. The task
-should take about 2 hours but it's more important you're happy with your implementation than to
-finish bang on time.
+The base css is Bootstrap. I imported the 'bootstrap.less' into the 'main.less' file (installed as a node module), from there I added my own styles and set up a Gulp task to compile the less to css as it was changed.
+
+I've gone for an infinite scroll, it's written from scratch as a pure JavaScript function. Given more time it could have been a bit more sophisticated - it adds a cloned array as the scroll nears the height of the main content div. It would have been best to debounce the scroll function, to avoid adding too many additional arrays and remove excess arrays as you scroll up. 
+
 
 
 ## Setup
 
 To run the app:
 
-```shell
+```
 $ npm install
+
+$ bower install
+
+$ gulp
+
+$ gulp watch (if you intend to change any less files)
+
 $ node app
-```
-
-
-## Products API
-
-Returns a list of products. 
-
-Example:
 
 ```
-GET /products/?offset=0&limit=60
-HTTP 200
-Content-Type: application/json
 
-{
-    "offset": 0,
-    "limit": 60,
-    "total": 274,
-    "data": [{
-        "id": 540559,
-        "name": "Roadmaster Waxed-Cotton Jacket",
-        "price": "£550",
-        "designer": "Belstaff",
-        "image": "//cache.mrporter.com/images/products/540559/540559_mrp_in_m2.jpg",
-        "largeImage": "//cache.mrporter.com/images/products/540559/540559_mrp_in_l.jpg"
-    }, ...]
-}
-```
 
-Parameters:
-
-* `offset` (optional) - defaults to 0
-* `limit` (optional) - defaults to 60
