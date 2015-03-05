@@ -19,7 +19,7 @@
         <li data-ng-repeat = "(key, item) in data">
             <div class="product-holder">
                 <div class="image-holder">
-                    <img class="img-responsive" ng-src="http://{{item.largeImage}}" />
+                    <img class="img-responsive" ng-src="http://{{item.largeImage}}" imageonload />
                 </div>
                 <p class="designer">{{item.designer}}</p>
                 <p>{{item.name}}<br />
