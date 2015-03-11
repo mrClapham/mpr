@@ -38,11 +38,29 @@ var App = (function(targ){
         _image_holder.setAttribute('class', 'image-holder')
 
         var _image = document.createElement('img')
-        _image.setAttribute('src', "http://"+ d.image)
+        _image.setAttribute('src', "http://"+ d.largeImage)
         _image.setAttribute('class', "img-responsive fadedIn")
+
+        var _designer = document.createElement('p')
+        _designer.setAttribute('class', 'designer')
+        var _designerText = document.createTextNode(d.designer);
+        _designer.appendChild(_designerText) ;
+
+        var _name = document.createElement('p')
+        var _nameText = document.createTextNode(d.designer );
+        var _br = document.createElement('br')
+        var _priceText = document.createTextNode( d.price );
+
+        //var _name.innerHTML = d.designer+'<br />'+ d.price;
+        _name.appendChild(_nameText);
+        _name.appendChild(_br);
+        _name.appendChild(_priceText);
 
         _image_holder.appendChild(_image);
         _product_holder.appendChild(_image_holder);
+        _product_holder.appendChild(_designer);
+        _product_holder.appendChild(_name);
+
         _li.appendChild(_product_holder);
 
         return _li;
@@ -61,6 +79,22 @@ var App = (function(targ){
         var products = this._data.data.map(function(d,i){
             _this._ul.appendChild( createProduct(d) );
         })
+
+        window.onscroll = function(e){
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var buffer = window.innerHeight;
+
+            console.log(scrollTop)
+
+//    if( ($scope.main.clientHeight - scrollTop) < buffer*2 ){
+//        $scope.multiplier += 1;
+//        $scope.data = $scope.getProducts();
+//        $scope.$apply();
+//    }
+        }
+
+
+
     }
 
 return _scope;
@@ -71,6 +105,9 @@ var init = function(){
     _app = new App(document.getElementById('main'));
 
 }
+
+
+
 
 
 
