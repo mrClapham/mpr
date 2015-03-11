@@ -4,32 +4,18 @@
     <title></title>
     <link rel="stylesheet" href="css/main.css"/>
     <script type="text/javascript" src="components/lodash/lodash.min.js"></script>
-    <script type="text/javascript" src="components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="components/angular-resource/angular-resource.min.js"></script>
+    <!--<script type="text/javascript" src="components/angular/angular.min.js"></script>-->
+    <!--<script type="text/javascript" src="components/angular-resource/angular-resource.min.js"></script>-->
+
+    <script type="text/javascript" src="js/service/Service.js"></script>    <!--<script type="text/javascript" src="js/AppService.js"></script>-->
     <script type="text/javascript" src="js/App.js"></script>
-    <script type="text/javascript" src="js/AppService.js"></script>
-    <script type="text/javascript" src="js/AppController.js"></script>
-    <script type="text/javascript" src="js/AppDirectives.js"></script>
+
+    <!--<script type="text/javascript" src="js/AppController.js"></script>-->
+    <!--<script type="text/javascript" src="js/AppDirectives.js"></script>-->
 </head>
-<body>
+<body onLoad="init()">
 <div class ="container" id="main" ng-app="App" ng-controller="AppController">
-
-    <ul class="products">
-        <li data-ng-repeat = "(key, item) in data">
-            <div class="product-holder">
-                <div class="image-holder">
-                    <img class="img-responsive" ng-src="http://{{item.largeImage}}" imageonload />
-                </div>
-                <p class="designer">{{item.designer}}</p>
-                <p>{{item.name}}<br />
-                {{item.price}}</p>
-            </div>
-
-
-        </li>
-    </ul>
-
-
+    <!-- products appended here -->
 </div>
 </body>
 </html>
