@@ -66,51 +66,41 @@ var App = (function(targ){
     }
 
     var onDataSet = function(){
-        console.log("onDataSet ---------- ", this._data);
-
         if( !this._ul ){
             this._ul = document.createElement('ul');
             this._ul.setAttribute('class', 'products');
             this._targ.appendChild(this._ul);
         }
-
+        addProducts.call(this);
+        if(!this._scrollingInitiated) initWindowScroll.call(this);
+    }
+    var addProducts = function(){
         var _this = this
         var products = this._data.data.map(function(d,i){
             _this._ul.appendChild( createProduct(d) );
         })
-
-        if(!this._scrollingInitiated) initWindowScroll.call(this);
-
     }
-
     var initWindowScroll = function() {
-
+        var _this = this
         window.onscroll = _.debounce(function (e) {
-            _onWindowScrolled.call(this);
-        }, 100);
+            _onWindowScrolled.call(_this);
+        }, 30);
         this._scrollingInitiated = true;
     }
     var _onWindowScrolled = function(){
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         var buffer = window.innerHeight;
-
-        console.log("TOP", scrollTop)
-
-        //    if( ($scope.main.clientHeight - scrollTop) < buffer*2 ){
-        //        $scope.multiplier += 1;
-        //        $scope.data = $scope.getProducts();
-        //        $scope.$apply();
-        //    }
-
+        // console.log("TOP", scrollTop);
+            if( (this._targ.clientHeight - scrollTop)<(buffer*2) ){
+                addProducts.call(this);
+            }
     }
 
     return _scope;
-
 })();
 
 var init = function(){
     _app = new App(document.getElementById('main'));
-
 }
 
 
