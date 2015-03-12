@@ -6,6 +6,7 @@ var App = (function(targ){
         this._ul = null;
         this._data = null;
         this._service = new Service();
+        this._scrollingInitiated = false;
         var _this = this;
         this._service.listen(Service.LOAD_COMPLETE, function(e){
             _this.setData(e.detail.data)
@@ -13,7 +14,7 @@ var App = (function(targ){
 
         this._service.setPath('/api/products/');
     }
-
+    //-- Api
     _scope.prototype = {
         setData:function(value){
             this._data = value;
@@ -23,11 +24,9 @@ var App = (function(targ){
             return this._data;
         }
     }
-    //--- call backs
 
+    //--- business logic
     var createProduct = function(d){
-        //console.log(d)
-
 
         var _li = document.createElement('li')
 
@@ -67,7 +66,7 @@ var App = (function(targ){
     }
 
     var onDataSet = function(){
-        console.log("onDataSet -- -------- ", this._data);
+        console.log("onDataSet ---------- ", this._data);
 
         if( !this._ul ){
             this._ul = document.createElement('ul');
@@ -80,24 +79,32 @@ var App = (function(targ){
             _this._ul.appendChild( createProduct(d) );
         })
 
-        window.onscroll = function(e){
-            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            var buffer = window.innerHeight;
-
-            console.log(scrollTop)
-
-//    if( ($scope.main.clientHeight - scrollTop) < buffer*2 ){
-//        $scope.multiplier += 1;
-//        $scope.data = $scope.getProducts();
-//        $scope.$apply();
-//    }
-        }
-
-
+        if(!this._scrollingInitiated) initWindowScroll.call(this);
 
     }
 
-return _scope;
+    var initWindowScroll = function() {
+
+        window.onscroll = _.debounce(function (e) {
+            _onWindowScrolled.call(this);
+        }, 100);
+        this._scrollingInitiated = true;
+    }
+    var _onWindowScrolled = function(){
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        var buffer = window.innerHeight;
+
+        console.log("TOP", scrollTop)
+
+        //    if( ($scope.main.clientHeight - scrollTop) < buffer*2 ){
+        //        $scope.multiplier += 1;
+        //        $scope.data = $scope.getProducts();
+        //        $scope.$apply();
+        //    }
+
+    }
+
+    return _scope;
 
 })();
 
