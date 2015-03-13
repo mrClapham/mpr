@@ -1,7 +1,3 @@
-/**
- * Created by grahamclapham on 25/09/2014.
- */
-
 var Service  = (function(){
     var _scope = function(){
         this._dispatcher = document.createElement('div');
@@ -18,19 +14,13 @@ var Service  = (function(){
         listen:function(name, func){
             this._dispatcher.addEventListener(name, func)
         },
-        onLoaded:function(){
-
-        },
         setPath:function(value){
             this._path = value
             _onPathSet.call(this);
         }
-
     }
     //-- callbacks
-
     var _onPathSet = function(){
-        console.log("_onPathSet Path set")
         var _this = this
         this.oReq.onload = function(e){
             reqListener.call(_this, e)
@@ -47,16 +37,11 @@ var Service  = (function(){
         console.log("On loaded");
     }
 
-
     var reqListener =  function (e) {
-
         this._data = e.target.responseText;
-        //console.log("reqListener", this._data)
-
         this.dispatchEvt(Service.LOAD_COMPLETE, { data:JSON.parse(this._data)} )
         return e.target.responseText;
     }
-
 
     return _scope;
 

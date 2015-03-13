@@ -24,10 +24,14 @@ var App = (function(targ){
             return this._data;
         }
     }
-
     //--- business logic
+    /**
+     * Creates the dom element
+     * @param d
+     * @returns {HTMLElement}
+     */
     var createProduct = function(d){
-
+git
         var _li = document.createElement('li')
 
         var _product_holder = document.createElement('div')
@@ -90,12 +94,10 @@ var App = (function(targ){
     var _onWindowScrolled = function(){
         var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
         var buffer = window.innerHeight;
-        // console.log("TOP", scrollTop);
             if( (this._targ.clientHeight - scrollTop)<(buffer*2) ){
                 addProducts.call(this);
             }
     }
-
     return _scope;
 })();
 
