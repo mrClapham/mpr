@@ -46,7 +46,7 @@ var App = (function(targ){
         _designer.appendChild(_designerText) ;
 
         var _name = document.createElement('p')
-        var _nameText = document.createTextNode(d.designer );
+        var _nameText = document.createTextNode(d.name );
         var _br = document.createElement('br')
         var _priceText = document.createTextNode( d.price );
 

@@ -5,6 +5,10 @@
 
 ## Setup
 
+Built with no frameworks or jQuery - the only dependency is a bit of lodash.
+
+Live version at [https://mpr-app.herokuapp.com/](https://mpr-app.herokuapp.com/)
+
 To run the app:
 
 ```
